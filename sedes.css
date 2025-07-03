@@ -1,0 +1,377 @@
+:root {
+    --color-background: #121212;
+    --color-surface: #1E1E1E;
+    --color-primary: #FFD700;
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #AAAAAA;
+    --color-border: #333333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--color-background);
+    color: var(--color-text-primary);
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+h1, h2, h3 {
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 2.5rem;
+}
+
+.header {
+    background-color: var(--color-surface);
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 5px;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--color-text-primary);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-primary);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.nav-links a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.btn {
+    padding: 8px 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--color-primary);
+    color: var(--color-background);
+}
+
+.menu-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  background-color: transparent;
+  color: var(--color-text-primary);
+  border: none;
+  padding: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.2s ease,
+}
+
+.menu-toggle:hover {
+  background-color: var(--color-border);
+}
+
+.sedes-banner {
+    height: 60vh;
+    min-height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('image/Gym\ Working\ Out\ GIF\ by\ Kendrick\ Lamar.gif');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+}
+
+.sedes-banner-content {
+    max-width: 800px;
+}
+
+.banner-text-slider {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  height: 150px;
+  position: relative;
+}
+
+.banner-text-slide {
+  min-width: 100%;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(0);
+}
+
+.banner-text-slide.active {
+  opacity: 1;
+}
+
+.banner-text-slide h1 {
+    font-size: 2.8rem;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.7);
+}
+
+.banner-text-slide p {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+}
+
+.btn-plans {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    padding: 15px 50px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-top: 30px;
+}
+
+#buscar-sede form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+#buscar-sede label {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+#search-input {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    font-size: 1rem;
+    background-color: var(--color-surface);
+    border: 2px solid var(--color-border);
+    border-radius: 5px;
+    color: var(--color-text-primary);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sedes-grid-full {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.sede-card {
+    background-color: var(--color-surface);
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.sede-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.sede-card p {
+    padding: 20px;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.footer {
+    background-color: var(--color-surface);
+    padding: 50px 5%;
+    border-top: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+}
+
+.footer-col h4 {
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
+.app-download {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.qr-code img {
+    width: 100px;
+    height: 100px;
+    border-radius: 8px;
+}
+
+.app-stores a {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.app-stores img {
+    width: 120px;
+}
+
+.social-links a {
+    color: var(--color-text-primary);
+    font-size: 1.8rem;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--color-primary);
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    color: var(--color-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up-animation { animation: fadeInUp 1s ease-out forwards; }
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+.pulse-animation:hover { animation: pulse 1s infinite; }
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+.slide-in-animation { animation: slideIn 1s ease-out forwards; }
+
+@keyframes colorChange {
+    from { border-color: var(--color-primary); box-shadow: 0 0 5px var(--color-primary); }
+    to { border-color: var(--color-border); box-shadow: none; }
+}
+#search-input:focus { animation: colorChange 1.5s infinite alternate; }
+
+.sede-card { transition: transform 0.3s ease; }
+.sede-card:hover { transform: translateY(-10px) scale(1.03); }
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+.shake-animation:hover { animation: shake 0.5s; }
+
+@media (max-width: 992px) {
+    .nav-links, .header-buttons .btn-primary, .header-buttons .btn-secondary {
+        display: none;
+    }
+    .menu-toggle {
+        display: block;
+    }
+}
+
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
+    .banner-text-slide h1 {
+        font-size: 2rem;
+    }
+    .sedes-grid-full {
+        grid-template-columns: 1fr;
+    }
+}
